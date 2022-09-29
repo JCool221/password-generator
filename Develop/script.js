@@ -13,11 +13,8 @@ function writePassword() {
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
-// generate a string of 16 random numbers
-var numbers function() {
-  return Math.floor(Math.random() * (1 - 10) + 1
 
-}
+// generate a string of 16 random numbers
 // add event to ask for types of characters
 // replace the random string of numbers with the alpha-numerics and symbols
-// print the final password to the box
+// print the final password to the textbox
