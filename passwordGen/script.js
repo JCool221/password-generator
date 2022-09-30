@@ -13,8 +13,7 @@ var symbols = '`~!@#$%^&*()_-+=/?.>,<;:'
 
 function generatePassword() {
     var passwd = '';
-    var chars = lowerCase;
-    // var chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+    var chars = "";
     for (i=1;i<17;i++) {
       var c = Math.floor(Math.random()*chars.length + 1);
       passwd += chars.charAt(c)
@@ -25,11 +24,18 @@ function generatePassword() {
   }
 // Write password to the #password input
 function writePassword() {
+  if (window.confirm("Would you like to include special characters?")) {
+    chars = (symbols);
+
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
 
+  } else {
+    window.alert("error");
+    location.reload();
+  }
 }
 
 // Add event listener to generate button
