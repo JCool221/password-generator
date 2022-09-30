@@ -11,10 +11,11 @@ var upperCase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 var numbers = '0123456789';
 var symbols = '`~!@#$%^&*()_-+=/?.>,<;:'
 
+
 function generatePassword() {
     var passwd = '';
     var chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-    for (i=1;i<16;i++) {
+    for (i=1;i<17;i++) {
       var c = Math.floor(Math.random()*chars.length + 1);
       passwd += chars.charAt(c)
     }
@@ -24,11 +25,16 @@ function generatePassword() {
   }
 // Write password to the #password input
 function writePassword() {
-  var password = generatePassword();
+  if (window.confirm("would you like to generate a password?")) {
+
+    var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
 
+} else {
+  window.alert("ok");
+}
 }
 
 // Add event listener to generate button
