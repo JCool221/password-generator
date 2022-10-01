@@ -10,7 +10,7 @@ var chars = numbers;
 function writePassword() {
   var test = Number(window.prompt("Choose a password length between 8 and 128 characters", "16"));
   var pwLength = test+1;
-  if (pwLength < 8 || pwLength > 128) {
+  if (pwLength < 8 || pwLength > 129) {
     window.confirm("Out of bounds");
     location.reload();
   } else {
