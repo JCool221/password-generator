@@ -14,10 +14,41 @@ var chars = numbers;
 
 function writePassword() {
   if (window.confirm("Would you like to include special characters?")) {
-    chars = numbers.concat(symbols);
-    console.log(chars);
+    if (window.confirm("Would you like to include upper case letters?")) {
+      if (window.confirm("Would you like to include lower case letters?")) {
+        // yes to all 3
+        chars = numbers.concat(symbols, lowerCase, upperCase);
+      } else {
+        // no to lower, yes to symbols and upper
+        chars = numbers.concat(symbols, upperCase);
+      }
+    } else {
+        // no to upper
+        if (window.confirm("Would you like to include lower case letters?")) {
+        // no to upper, yes to lower and symbols
+        chars = numbers.concat(symbols, lowerCase);
+      } else {
+        // no to lower and upper, yes to symbols
+        chars = numbers.concat(symbols);
+      }
+    }
   } else {
+    if (window.confirm("Would you like to include upper case letters?")) {
+      if (window.confirm("Would you like to include lower case letters?")) {
+      // no to symbols, yes to upper and lower
+      chars = numbers.concat(lowerCase, upperCase);
+      } else {
+        // no to symbols and lowercase, only uppercase
+      chars = numbers.concat(upperCase);
+    }
+  } else {
+  if (window.confirm("Would you like to include lower case letters?")) {
+    // no to symbolsand upper, only lower
+    chars = numbers.concat(lowerCase);
+    } else {
+      // no to all
     chars = numbers;
+    }
 }
 
 function generatePassword() {
@@ -39,7 +70,3 @@ function generatePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-
-function pushing() {
-  chars.push(numbers);
-}
