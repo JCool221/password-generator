@@ -14,44 +14,86 @@ function writePassword() {
     window.confirm("Out of bounds");
     location.reload();
   } else {
-  if (window.confirm("Would you like to include special characters?")) {
-    if (window.confirm("Would you like to include upper case letters?")) {
-      if (window.confirm("Would you like to include lower case letters?")) {
-        // yes to all 3
-        chars = numbers.concat(symbols, lowerCase, upperCase);
+    if (window.confirm("Would you like to include numbers?")) { 
+      if (window.confirm("Would you like to include special characters?")) {
+        if (window.confirm("Would you like to include upper case letters?")) {
+          if (window.confirm("Would you like to include lower case letters?")) {
+            // yes to all 3
+            chars = numbers.concat(symbols, lowerCase, upperCase);
+          } else {
+            // no to lower, yes to symbols and upper
+            chars = numbers.concat(symbols, upperCase);
+          }
+        } else {
+            // no to upper
+            if (window.confirm("Would you like to include lower case letters?")) {
+            // no to upper, yes to lower and symbols
+            chars = numbers.concat(symbols, lowerCase);
+          } else {
+            // no to lower and upper, yes to symbols
+            chars = numbers.concat(symbols);
+          }
+        } 
       } else {
-        // no to lower, yes to symbols and upper
-        chars = numbers.concat(symbols, upperCase);
-      }
+          if (window.confirm("Would you like to include upper case letters?")) {
+            if (window.confirm("Would you like to include lower case letters?")) {
+            // no to symbols, yes to upper and lower
+            chars = numbers.concat(lowerCase, upperCase);
+            } else {
+          // no to symbols and lowercase, only uppercase
+          chars = numbers.concat(upperCase);
+          }
+        } else {
+          if (window.confirm("Would you like to include lower case letters?")) {
+          // no to symbolsand upper, only lower
+          chars = numbers.concat(lowerCase);
+          } else {
+            // no to all
+            chars = numbers;
+          }
+        }
+      } 
     } else {
-        // no to upper
-        if (window.confirm("Would you like to include lower case letters?")) {
-        // no to upper, yes to lower and symbols
-        chars = numbers.concat(symbols, lowerCase);
+      if (window.confirm("Would you like to include special characters?")) {
+        if (window.confirm("Would you like to include upper case letters?")) {
+          if (window.confirm("Would you like to include lower case letters?")) {
+            // yes to all 3
+            chars = symbols.concat(lowerCase, upperCase);
+          } else {         
+            // no to lower, yes to symbols and upper
+            chars = symbols.concat(upperCase);
+          }
+        } else {
+            // no to upper
+            if (window.confirm("Would you like to include lower case letters?")) {
+            // no to upper, yes to lower and symbols
+            chars = symbols.concat(lowerCase);
+          } else {
+            // no to lower and upper, yes to symbols
+            chars = symbols;
+          }
+        } 
       } else {
-        // no to lower and upper, yes to symbols
-        chars = numbers.concat(symbols);
-      }
-    } 
-  } else {
-      if (window.confirm("Would you like to include upper case letters?")) {
-      if (window.confirm("Would you like to include lower case letters?")) {
-      // no to symbols, yes to upper and lower
-      chars = numbers.concat(lowerCase, upperCase);
-      } else {
-        // no to symbols and lowercase, only uppercase
-      chars = numbers.concat(upperCase);
-      }
-    } else {
-      if (window.confirm("Would you like to include lower case letters?")) {
-      // no to symbolsand upper, only lower
-      chars = numbers.concat(lowerCase);
-      } else {
-        // no to all
-        chars = numbers;
-      }
+          if (window.confirm("Would you like to include upper case letters?")) {
+            if (window.confirm("Would you like to include lower case letters?")) {
+            // no to symbols, yes to upper and lower
+            chars = lowerCase.concat(upperCase);
+            } else {
+          // no to symbols and lowercase, only uppercase
+          chars = upperCase;
+          }
+        } else {
+          if (window.confirm("Would you like to include lower case letters?")) {
+          // no to symbolsand upper, only lower
+          chars = lowerCase;
+          } else {
+            // no to all
+            window.confirm("no Selections made");
+            location.reload();       
+          }
+        }
+      } 
     }
-  } 
   }
 // create a random sequence out of the concatenated strings and return it as var passwd
 function generatePassword() {
