@@ -1,10 +1,5 @@
 // Assignment Code
 
-// generate a string of 16 random numbers
-// add event to ask for types of characters
-// replace the random string of numbers with the alpha-numerics and symbols
-// print the final password to the textbox
-
 var generateBtn = document.querySelector("#generate");
 var lowerCase = 'abcdefghijklmnopqrstuvwxyz';
 var upperCase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
