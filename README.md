@@ -12,7 +12,7 @@ Users will press a button then face a series of prompts asking for the length of
 
 # Screenshot
 
-![Screenshot of deployed website](Assets\password generator SS.png)
+![Screenshot of deployed website](.Assets\password generator SS.png)
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
