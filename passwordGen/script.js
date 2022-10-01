@@ -13,6 +13,12 @@ var symbols = '`~!@#$%^&*()_-+=/?.>,<;:'
 var chars = numbers;
 
 function writePassword() {
+  var test = Number(window.prompt("Choose a password length between 8 and 128 characters", "16"));
+  var pwLength = test+1;
+  if (pwLength < 8 || pwLength > 128) {
+    window.confirm("Out of bounds");
+    location.reload();
+  } else {
   if (window.confirm("Would you like to include special characters?")) {
     if (window.confirm("Would you like to include upper case letters?")) {
       if (window.confirm("Would you like to include lower case letters?")) {
@@ -51,11 +57,11 @@ function writePassword() {
       }
     }
   } 
-
+  }
 // create a random sequence out of the concatenated strings and return it as var passwd
 function generatePassword() {
     var passwd = '';
-    for (i=1;i<17;i++) {
+    for (i=1; i<pwLength; i++) {
       var c = Math.floor(Math.random()*chars.length + 1);
       passwd += chars.charAt(c)
     }
