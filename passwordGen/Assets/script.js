@@ -1,5 +1,6 @@
 // Assignment Code
 
+// variables
 var generateBtn = document.querySelector("#generate");
 var lowerCase = 'abcdefghijklmnopqrstuvwxyz';
 var upperCase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -7,18 +8,22 @@ var numbers = '0123456789';
 var symbols = '`~!@#$%^&*()_-+=/?.>,<;:'
 var chars = numbers;
 
+// generate prompts to create password 
 function writePassword() {
+  // generate prompt to get password length between 8 and 128 characters with failure states on both ends
   var test = Number(window.prompt("Choose a password length between 8 and 128 characters", "16"));
   var pwLength = test+1;
-  if (pwLength < 8 || pwLength > 129) {
+  if (pwLength < 9 || pwLength > 129) {
     window.confirm("Out of bounds");
     location.reload();
   } else {
+  // series of prompts to decide which strings to concatenate for the password criteria
+    // include numbers
     if (window.confirm("Would you like to include numbers?")) { 
       if (window.confirm("Would you like to include special characters?")) {
         if (window.confirm("Would you like to include upper case letters?")) {
           if (window.confirm("Would you like to include lower case letters?")) {
-            // yes to all 3
+            // yes to upper, lower and special
             chars = numbers.concat(symbols, lowerCase, upperCase);
           } else {
             // no to lower, yes to symbols and upper
@@ -48,16 +53,17 @@ function writePassword() {
           // no to symbolsand upper, only lower
           chars = numbers.concat(lowerCase);
           } else {
-            // no to all
+            // no to upper, lower and special
             chars = numbers;
           }
         }
       } 
     } else {
+      // do not include numnbers
       if (window.confirm("Would you like to include special characters?")) {
         if (window.confirm("Would you like to include upper case letters?")) {
           if (window.confirm("Would you like to include lower case letters?")) {
-            // yes to all 3
+            // yes to upper, lower and special
             chars = symbols.concat(lowerCase, upperCase);
           } else {         
             // no to lower, yes to symbols and upper
@@ -84,7 +90,7 @@ function writePassword() {
           }
         } else {
           if (window.confirm("Would you like to include lower case letters?")) {
-          // no to symbolsand upper, only lower
+          // no to symbols and upper, only lower
           chars = lowerCase;
           } else {
             // no to all
