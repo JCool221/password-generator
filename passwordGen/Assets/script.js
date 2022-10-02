@@ -107,11 +107,8 @@ function generatePassword() {
     for (i=1; i<pwLength; i++) {
       var c = Math.floor(Math.random()*chars.length + 1);
       passwd += chars.charAt(c)
-    }
-  
-    return passwd;
-    console.log(chars);
-  
+    }  
+    return passwd; 
   }
 // Write password to the #password input
       var password = generatePassword();
