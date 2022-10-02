@@ -4,7 +4,7 @@ This is a website for creating a pseudorandomized character string from 8-128 ch
 
 ## URL
 
-Coming Soon
+https://jcool221.github.io/password-generator/
 
 ## Usage
 
